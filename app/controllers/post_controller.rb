@@ -15,7 +15,7 @@ class PostController < ApplicationController
   private
 
   def require_login
-    unless current_user.logged_in?
+    unless current_user && current_user.logged_in?
       flash[ :danger ] = "Please log in."
       redirect_to root_url
     end
